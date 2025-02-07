@@ -6,17 +6,10 @@ html,
 body,
 #root {
   font-family: "Space Mono", serif;
-  background-color: rgb(255, 0, 0);
+  background-color: rgb(255, 255, 255);
   width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
 }
-
-#root{
-  padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
-}
-
 
 .App {
   width: 100%;
