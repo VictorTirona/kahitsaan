@@ -59,6 +59,8 @@ DAY 4
   - When there are no favorites, should say "No favorite restaurants yet. Start swiping!"
   - When there are no places, should say "No restaurants found. Try increasing the radius or changing places!"
 8. Change logo and title name
+9. Favorites should be ordered by time saaved
+10. Change number of places from 3 to 20
 8. [BUG] Swiping left and right is not working properly after the first one
 9. [BUG] Steps to reproduce:
   1. select radius
@@ -79,6 +81,7 @@ HIGH PRIORITY -- NICE TO HAVE
 Make sure app still looks good in landscape rotation
 14. Add the short generated descriptions in the RestaurantCards
 15. [BUG] In favorites, operating hours goes beyond length
+16. Should be able to delete favorites
 
 NICE TO HAVE
 14. Button click animations. How do I make them look more like buttons?

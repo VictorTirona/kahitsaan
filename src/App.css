@@ -11,9 +11,6 @@ body,
   height: 100%;
 }
 
-#root{
-  padding: 0 0 env(safe-area-inset-bottom) 0;
-}
 
 .App {
   width: 100%;
