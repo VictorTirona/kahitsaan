@@ -98,6 +98,13 @@ function App() {
     })
   }
 
+  useEffect(() => {
+    const metaTag = document.querySelector('meta[name="theme-color"]');
+    if (metaTag) {
+      metaTag.setAttribute('content', (page=="Main")?"#FFFFFF":"#F39600");
+    }
+  }, [page]);
+
   //Style based on page
   const stylePage = (page == "Main") ?
     //Style if Main Page

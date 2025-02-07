@@ -34,7 +34,6 @@ body,
 .Header {
   height: 44px;
   background-color: #F39600;
-  padding-top: 10px;
   margin-bottom: 24px;
   display: flex;
 }
