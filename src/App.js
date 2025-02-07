@@ -98,7 +98,7 @@ function App() {
     })
   }
 
-  useEffect(() => {
+  React.useEffect(() => {
     const metaTag = document.querySelector('meta[name="theme-color"]');
     if (metaTag) {
       metaTag.setAttribute('content', (page=="Main")?"#FFFFFF":"#F39600");
