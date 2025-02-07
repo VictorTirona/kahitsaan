@@ -84,7 +84,7 @@ export default function AppMain(props) {
 
       console.log(`Nearby Search (Part 1/2) using lat: ${placesData.lat} and ${placesData.lng}`)
       //Fetch nearby search data
-      fetch("http://localhost:5000/api/v1/nearbySearch", {
+      fetch(`${props.API_BASE_URL}/api/v1/nearbySearch`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -142,6 +142,7 @@ export default function AppMain(props) {
               allPlaces={allPlaces}
               placesData={placesData}
               hasPicked={hasPicked}
+              API_BASE_URL={props.API_BASE_URL}
             /> :
               <MainMap
                 allPlaces={allPlaces}

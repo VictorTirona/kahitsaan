@@ -126,7 +126,7 @@ export default function MainOption(props) {
   React.useEffect(() => {
     try {
       console.log("Getting the photo for:", props.allPlaces[chosenPlace].photos[0].name)
-      fetch("http://localhost:5000/api/v1/photo", {
+      fetch(`${props.API_BASE_URL}/api/v1/photo`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -162,7 +162,7 @@ export default function MainOption(props) {
     try {
       if (props.allPlaces[chosenPlace + 1]) {//if statement to check if the next place even exists
         console.log("Getting the photo for:", props.allPlaces[chosenPlace + 1].photos[0].name)
-        fetch("http://localhost:5000/api/v1/photo", {
+        fetch(`${props.API_BASE_URL}/api/v1/photo`, {
           method: "POST",
           headers: {
             'Content-Type': 'application/json',

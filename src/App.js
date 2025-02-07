@@ -2,7 +2,7 @@ import React from 'react'
 import './App.css';
 import AppMain from './components/AppMain.js'
 import AppFavorites from './components/AppFavorites.js'
-
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || "http://localhost:5000";
 
 
 /*
@@ -140,6 +140,7 @@ function App() {
         page={page}
         handlePageChange={handlePageChange}
         stylePage={stylePage}
+        API_BASE_URL={API_BASE_URL}
       />}
       {page == 'Favorites' && <AppFavorites
         page={page}
