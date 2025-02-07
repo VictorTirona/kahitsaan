@@ -58,7 +58,7 @@ DAY 4
   - When in the MainOptions screen, if user enters a new radius or address, should load a new set of places.
   - When there are no favorites, should say "No favorite restaurants yet. Start swiping!"
   - When there are no places, should say "No restaurants found. Try increasing the radius or changing places!"
-
+8. Change logo and title name
 8. [BUG] Swiping left and right is not working properly after the first one
 9. [BUG] Steps to reproduce:
   1. select radius
@@ -66,13 +66,13 @@ DAY 4
   3. select radius
   4. result: some photos get halved?
   5. this was in 7 peace street!
-9. Deployment and testing
-  - Make API keys into ENV variables
-  - Push to github
-  - Push to vercel
-    - App
-    - Server
-  - Test all features
+✓ Deployment and testing
+  ✓ Make API keys into ENV variables
+  ✓ Push to github
+  ✓ Push to vercel
+    ✓ App
+    ✓ Server
+  ✓ Test all features
 
 HIGH PRIORITY -- NICE TO HAVE
 13. App should not get reset when changing between pages
