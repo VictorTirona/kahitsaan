@@ -13,7 +13,7 @@ body,
   padding: 0;
 }
 
-body{
+#root{
   padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
 
