@@ -1,0 +1,412 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  font-family: "Space Mono", serif;
+  background-color: rgb(201, 201, 201);
+  width: 100%;
+  height: 100%;
+}
+
+
+.App {
+  width: 100%;
+  height: 100%;
+  padding: 6px;
+  overflow: hidden;
+  background-color: #F39600;
+}
+
+
+/*----------------------------------------------START: APP FAVORITES PAGE-------------------------------------------------------*/
+
+.AppFavorites {
+  width: 100%;
+  height: 100%;
+}
+
+.AppFavorites--logo {
+  margin: 0 0 0 0;
+}
+
+.Header {
+  height: 44px;
+  background-color: #F39600;
+  padding-top: 10px;
+  margin-bottom: 24px;
+  display: flex;
+}
+
+.Header--logo {
+  margin: 0 0 0 7px;
+  font-size: 1.875rem;
+  color: white;
+  font-style: italic;
+  letter-spacing: 0.5px;
+}
+
+.Header--button {
+  margin: 0 0 0 auto;
+  background-color: transparent;
+  border: none;
+  height: 35px;
+  width: 50px;
+}
+
+.Header--button-img {
+  height: 70%;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.Header--button:hover {
+  cursor: pointer;
+}
+
+.FavoritesContent {
+  height: calc(100% - 44px);
+  background-color: #F39600;
+  overflow: scroll;
+}
+
+.FavoritesContent--title {
+  font-size: 1.25rem;
+  margin: 0 0 20px 7px;
+  color: white;
+  font-style: italic;
+}
+
+.FavoritesContent--cards {
+  padding-bottom: 16px;
+}
+
+.Card {
+  height: 185px;
+  display: flex;
+  align-items: center;
+  margin: 0 0 10px 0;
+  text-decoration: none;
+  color: black;
+}
+
+.Card--img {
+  height: 185px;
+  width: 25%;
+  object-fit: cover;
+  border-radius: 10px 0 0 10px;
+}
+
+.Card--info {
+  width: 75%;
+  height: 100%;
+  background-color: white;
+  border-radius: 0 10px 10px 0;
+  padding: 12px 12px 12px 9px;
+  position: relative;
+}
+
+.Card--info-title {
+  margin: 0;
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+.Card--info-sub {
+  margin: 0;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.Card--info-status-container{
+  position: absolute;
+  bottom: 13px;
+  right: 13px;
+}
+
+.Card--info-address{
+  width: 12px;
+  filter: invert(41%) sepia(79%) saturate(1817%) hue-rotate(118deg) brightness(100%) contrast(87%);
+  height: 0.85rem;
+  margin: 2px 5px 0 0;
+}
+
+/*----------------------------------------------END: APP FAVORITES PAGE-------------------------------------------------------*/
+
+/*----------------------------------------------START: APP MAIN PAGE-------------------------------------------------------*/
+
+
+.AppMain {
+  width: 100%;
+  height: 100%;
+}
+
+.App--picked {
+  height: calc(100% - 102px); /*102px is the height of the Header and the half-point of the searchbar*/
+  width: 100%;
+  position: relative;
+}
+
+
+.SearchBar {
+  height: 64px;
+  width: calc(100% - 10px);
+  padding: 0 5px 0 5px;
+  display: flex;
+  position: fixed;
+  top: 76px;
+  left: 5px;
+  z-index: 2;
+}
+
+/*SearchBar div references the wrapper of StandaloneSearchBox. I found this out by inspecting the webpage*/
+.SearchBar div{
+  width: 100%;
+}
+
+.SearchBar--input {
+  font-family: "Space Mono", serif;
+  font-size: 1.125rem;
+  font-style: italic;
+  outline: none;
+  width: 100%;
+  height: 64px;
+  border-radius: 64px 0 0 64px;
+  border: none;
+  background-color: #e0e0e0;
+  color: #232323;
+  box-shadow: 0 5px 5px rgb(0, 0, 0, 0.25);
+  padding: 0 20px 0 20px;
+}
+
+.SearchBar--radius-input {
+  width: 40%;
+  border-radius: 0 64px 64px 0;
+  border: none;
+  background-color: #e0e0e0;
+  color: #232323;
+  font-family: "Space Mono", serif;
+  font-size: 1.125rem;
+  font-style: italic;
+  outline: none;
+  box-shadow: 0 5px 5px  rgb(0, 0, 0, 0.25);
+  padding: 0 10px 0 10px;
+}
+
+/*remove drop down arrow from the select input*/
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  /* for Firefox */
+  -moz-appearance: none;
+  /* for Chrome */
+  -webkit-appearance: none;
+}
+
+.SearchBar--radius-default{
+  color: #565656;
+}
+
+.Main {
+  touch-action: none;
+  /*Prevents scrolling when swiping left or right*/
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  position: absolute;
+  margin-top: 34px;
+}
+
+/*this is to add a border radius on the Google Maps component*/
+.Main--map{
+  border-radius: 10px;
+  height: 100%;
+  overflow: hidden;
+}
+
+.Main--container {
+  margin: 0 auto 0 auto;
+  width: 100%;
+  height: 100%;
+}
+
+.Main--img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  filter: brightness(80%);
+}
+
+.Main--img-gradient {
+  width: 100%;
+  height: 45%;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0), rgb(0, 0, 0));
+  position: absolute;
+  border-radius: 20px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.Main--content {
+  position: absolute;
+  bottom: 0;
+  padding: 16px;
+  width: 100%;
+  color: white;
+}
+
+.Main--content-status {
+  text-align: center;
+  width: max-content;
+  padding: 0 10px 0 10px;
+  font-weight: 300;
+  font-size: 15px;
+  background-color: #08b355;
+  border-radius: 10px;
+  margin: 0 0 5px 0;
+  color: white;
+}
+
+.Main--content-title{
+  /*line height, height, and font-size need to all be the same so that there's no whitespace above or below the text*/
+  line-height: 1.875rem;
+  font-size: 1.875rem;
+  margin: 0 0 0 0;
+  vertical-align: top;
+}
+
+.Main--content-sub {
+  font-weight: 300;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.Main--content-rating {
+  font-weight: 400;
+  font-size: 1rem;
+  margin: 0 0 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.Stars {
+  height: 16px;
+  margin: 0 5px 0 0;
+}
+
+.Stars--img{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+
+.Main--content-line{
+  display: flex;
+  align-items: center;
+  margin: 0 0 0 10px;
+}
+
+.Main--content-icon{
+  height: 16px;
+  width: 12px;
+  margin: 7px 5px auto 0;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+.Main--gmaps-container{
+  position: relative;
+  height: 35px;
+  width: 100%;
+  margin: 20px 0 0 0;
+}
+
+.Main--gmaps-link {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.Main--gmaps {
+  height: 35px;
+  width: 35px;
+  vertical-align: middle;
+}
+
+.Main--container{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.Main--RestaurantCard-over{
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  opacity: 1;
+}
+
+.Main--RestaurantCard-under{
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+.Footer {
+  width: 100%;
+  height: 7%;
+  background-color: white;
+  margin: 0px;
+}
+
+.Footer--container {
+  margin: 0 auto 0 auto;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Footer--button-no {
+  margin: 0 auto 0 auto;
+  height: 80%;
+  width: 46%;
+  border-radius: 5px;
+  border: none;
+  font-family: "Poppins", sans-serif;
+  background-color: #cecece;
+}
+
+.Footer--button-yes {
+  margin: 0 auto 0 auto;
+  height: 80%;
+  width: 46%;
+  border-radius: 5px;
+  border: none;
+
+  font-family: "Poppins", sans-serif;
+  background-color: #08b355;
+}
+
+.Footer--button-yes:hover {
+  cursor: pointer;
+}
+
+.Footer--button-no:hover {
+  cursor: pointer;
+}
+
+.Test {
+  background-color: white;
+}
+
+/*----------------------------------------------END: APP MAIN PAGE-------------------------------------------------------*/
