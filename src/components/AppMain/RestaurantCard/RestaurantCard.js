@@ -4,7 +4,7 @@ import Stars from '../../common/Stars.js'
 
 export default function RestaurantCard(props) {
   return (
-    <div className="Main--container">
+    <div className="Main--card-container">
       {props.photoURL && <img className="Main--img" src={`${props.photoURL}`} />}
       <div className="Main--img-gradient"></div>
       <div className="Main--content">

@@ -1,6 +1,7 @@
 import React from 'react'
 import RestaurantCard from './RestaurantCard/RestaurantCard.js'
-
+import Popup from '../Popup/Popup.js'
+import popupData from '../../popupData.js'
 
 /*
 SWIPING Feature
@@ -27,6 +28,7 @@ export default function MainOption(props) {
     clientX: 0,
     clientY: 0,
   })
+
 
   function handleTouchStart(e) {
     //e.preventDefault()
@@ -75,7 +77,7 @@ export default function MainOption(props) {
     if ((Math.abs(offsetX) >= threshold) && (offsetX > 0)) {
       console.log("Swiped to the right")
       handleSwipe("right")
-    } else if ((Math.abs(offsetX) >= threshold) && (offsetX > 0)) {
+    } else if ((Math.abs(offsetX) >= threshold) && (offsetX < 0)) {
       console.log("Swiped to the left")
       handleSwipe("left")
     } else {
@@ -98,11 +100,25 @@ export default function MainOption(props) {
   function handleSwipe(direction) {
     if (direction == "right") {
       localStorage.setItem(currentPlace.name, JSON.stringify(
-        {...currentPlace, 
+        {
+          ...currentPlace,
           photoURL: photoURL.firstPhoto,
           priceRange: currentPriceRange,
           operatingHours: currentPlaceOperatingHours
         }))
+      setPopupStatus((oldState) => {
+        return ({
+          ...oldState,
+          userHasSwipedRight: true,
+        })
+      })
+    } else if (direction == "left") {
+      setPopupStatus((oldState) => {
+        return ({
+          ...oldState,
+          userHasSwipedLeft: true,
+        })
+      })
     }
 
     //Resets this back to 0
@@ -110,6 +126,8 @@ export default function MainOption(props) {
       clientX: 0,
       clientY: 0,
     })
+
+    //
 
     setChosenPlace(function (oldState) {
       return (oldState + 1)
@@ -204,7 +222,6 @@ export default function MainOption(props) {
     const currentDayAdjusted = currentDay == 0 ? 6 : currentDay - 1
 
     const delimitedTime = thisPlace.regularOpeningHours.weekdayDescriptions[currentDayAdjusted].split(": ")
-    console.log("Here's the next place", nextPlace)
     return delimitedTime[1];
   }
 
@@ -213,11 +230,92 @@ export default function MainOption(props) {
     return (priceRangeString)
   }
 
+  //--------------------------------------START: DESKTOP CONTROLS------------------------------
+
+  //Listener for keypresses
+  React.useEffect(() => {
+    function handleKeyDown(event) {
+
+      //!document.activeElement.className.includes("SearchBar") is to check if the searchbar is in focus during the keypress. We do not want it to trigger
+      if (event.key === "ArrowLeft" && !document.activeElement.className.includes("SearchBar")) {
+        console.log("ArrowLeft")
+        setTouchEnd((oldState) => {
+          return ({
+            ...oldState,
+            cardPosition: `translate(-700px) rotate(-70deg)`,
+            transitionStyle: `transform 0.3s ease-out`
+          })
+        })
+        setTimeout(() => {
+          handleSwipe("left");
+        }, 200);
+      } else if (event.key === "ArrowRight" && !document.activeElement.className.includes("SearchBar")) {
+        console.log("ArrowRight")
+        setTouchEnd((oldState) => {
+          return ({
+            ...oldState,
+            cardPosition: `translate(700px) rotate(70deg)`,
+            transitionStyle: `transform 0.3s ease-out`
+          })
+        })
+        setTimeout(() => {
+          handleSwipe("right");
+        }, 200);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
+  //--------------------------------------END: DESKTOP CONTROLS------------------------------
+
+  //---------------------------------------START: POPUP----------------------------------------
+
+  const [popupStatus, setPopupStatus] = React.useState({
+    startOptions: true,
+    firstSwipeRight: true,
+    firstSwipeLeft: true,
+    userHasSwipedRight: false, //tracks if user has EVER swiped right
+    userHasSwipedLeft: false //tracks if user has EVER swiped left
+  })
+
+  function handlePopupExit(name) {
+    //name in this function is what popupStatus key we're trying to change: expected keys are startOptions, firstSwipeRight, firstSwipeLeft
+    setPopupStatus((oldState) => {
+      return ({
+        ...oldState,
+        [name]: false,
+      })
+    })
+  }
+  //---------------------------------------END: POPUP----------------------------------------
+
 
 
 
   return (
     <div className="Main">
+      {popupStatus.startOptions &&
+        <Popup
+          handlePopupExit={handlePopupExit}
+          popupData={popupData.startOptions}
+        />
+      }
+      {(popupStatus.firstSwipeLeft && popupStatus.userHasSwipedLeft) &&
+        <Popup
+          handlePopupExit={handlePopupExit}
+          popupData={popupData.firstSwipeLeft}
+        />
+      }
+      {(popupStatus.firstSwipeRight && popupStatus.userHasSwipedRight) &&
+        <Popup
+          handlePopupExit={handlePopupExit}
+          popupData={popupData.firstSwipeRight}
+        />
+      }
       <div className="Main--container">
         {/*the under card is first so that we can make sure it gets rendered before the over card */}
         <div className="Main--RestaurantCard-over"

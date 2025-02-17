@@ -42,25 +42,29 @@ DAY 4
   ✓ Store favorites in browser local storage?
   ✓ Favorites page: have it use items in the local storage
   ✓ Adjust favorites components to use the ACTUAL data!!!
-4. For laptop: user should be able to press right and left to swipe
-5. Store in browser local storage how many times a user has tried LOL. Limit it to 5 searches
-6. Pop ups
-  - Create pop up component
-    - Should have a changeable icon (heart or thumbs down, or exclamation point for instructions etc.)
-    - background should be darker
-    - if background is clicked or the "x" button, pop up should disappear
-  - At the start: "Phone: swipe left and right. Desktop: left and right arrow keys"
-  - After swiping left or right: 
-    - Right: "*Heart Icon* Saved restaurant in your favorites! Tap the heart icon on the top right."
-    - Left: "Thumbs down. You did not like this restaurant."
-    - should show only for the first time swiping right and left
+✓ Increase the number of places API retrieved
+✓ Pop ups
+✓ Create pop up component
+    ✓Should have a changeable icon (heart or thumbs down, or exclamation point for instructions etc.)
+    ✓background should be darker
+    ✓ if background is clicked or the "x" button, pop up should disappear
+  ✓ At the start: "Phone: swipe left and right. Desktop: left and right arrow keys"
+  ✓ After swiping left or right: 
+    ✓ Right: "*Heart Icon* Saved restaurant in your favorites! Tap the heart icon on the top right."
+    ✓ Left: "Thumbs down. You did not like this restaurant."
+    ✓ should show only for the first time swiping right and left
+✓ Change logo and title name
+✓ Change number of places from 3 to 20
+✓ For laptop: user should be able to press right and left to swipe
+6. When clicking left and right after the second click, it should save to favorites
+5. Local Storage upgrade:
+  - Favorites should be ordered by time saaved
+  - Store in browser local storage how many times a user has tried LOL. Limit it to 5 searches
+  ✓ If restaurant already exists in local storage, do not add
 7. No results screens
   - When in the MainOptions screen, if user enters a new radius or address, should load a new set of places.
   - When there are no favorites, should say "No favorite restaurants yet. Start swiping!"
   - When there are no places, should say "No restaurants found. Try increasing the radius or changing places!"
-8. Change logo and title name
-9. Favorites should be ordered by time saaved
-10. Change number of places from 3 to 20
 8. [BUG] Swiping left and right is not working properly after the first one
 9. [BUG] Steps to reproduce:
   1. select radius
@@ -82,6 +86,7 @@ Make sure app still looks good in landscape rotation
 14. Add the short generated descriptions in the RestaurantCards
 15. [BUG] In favorites, operating hours goes beyond length
 16. Should be able to delete favorites
+17. [BUG] Re-sizing pop up by width makes pop up go down
 
 NICE TO HAVE
 14. Button click animations. How do I make them look more like buttons?

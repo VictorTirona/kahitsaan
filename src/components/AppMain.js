@@ -5,6 +5,8 @@ import MainOption from './AppMain/MainOption.js'
 import Footer from './AppMain/Footer.js'
 import places from '../placesData.js'
 import Header from './common/Header.js'
+import Popup from './Popup/Popup.js'
+import popupData from '../popupData.js'
 
 
 import {
@@ -62,13 +64,13 @@ export default function AppMain(props) {
   }
 
   function handleSelectChange(event) {
-    const { name, value} = event.target
-      setPlacesData(function (oldState) {
-        return ({
-          ...oldState,
-          [name]: value
-        })
+    const { name, value } = event.target
+    setPlacesData(function (oldState) {
+      return ({
+        ...oldState,
+        [name]: value
       })
+    })
   }
 
   //State to prevent useEffect from running for nearbySearch
@@ -115,14 +117,25 @@ export default function AppMain(props) {
   }, [hasPicked]);
 
 
+  //------------------------------------------START: POP UPS-------------------------------------------------------------
 
+  const [popupActive, setPopupActive] = React.useState(true)
 
+  function handlePopupExit() {
+    setPopupActive(false);
+  }
 
-
+  //------------------------------------------END: POP UPS-------------------------------------------------------------
 
 
   return (
     <div className="AppMain">
+      {popupActive &&
+        <Popup
+          handlePopupExit={handlePopupExit}
+          popupData={popupData.startAddress}
+        />
+      }
       <Header
         page={props.page}
         handlePageChange={props.handlePageChange}
