@@ -56,22 +56,6 @@ DAY 4
 ✓ Change logo and title name
 ✓ Change number of places from 3 to 20
 ✓ For laptop: user should be able to press right and left to swipe
-6. When clicking left and right after the second click, it should save to favorites
-5. Local Storage upgrade:
-  - Favorites should be ordered by time saaved
-  - Store in browser local storage how many times a user has tried LOL. Limit it to 5 searches
-  ✓ If restaurant already exists in local storage, do not add
-7. No results screens
-  - When in the MainOptions screen, if user enters a new radius or address, should load a new set of places.
-  - When there are no favorites, should say "No favorite restaurants yet. Start swiping!"
-  - When there are no places, should say "No restaurants found. Try increasing the radius or changing places!"
-8. [BUG] Swiping left and right is not working properly after the first one
-9. [BUG] Steps to reproduce:
-  1. select radius
-  2. select location
-  3. select radius
-  4. result: some photos get halved?
-  5. this was in 7 peace street!
 ✓ Deployment and testing
   ✓ Make API keys into ENV variables
   ✓ Push to github
@@ -79,14 +63,28 @@ DAY 4
     ✓ App
     ✓ Server
   ✓ Test all features
+  6. When clicking left and right after the second click, it should save to favorites
 
 HIGH PRIORITY -- NICE TO HAVE
+7. No results screens
+  - When in the MainOptions screen, if user enters a new radius or address, should load a new set of places.
+  - When there are no favorites, should say "No favorite restaurants yet. Start swiping!"
+  - When there are no places, should say "No restaurants found. Try increasing the radius or changing places!"
+8. [BUG] Swiping to the max number of places limit causes an error
+9. [BUG] Steps to reproduce:
+  1. select radius
+  2. select location
+  3. select radius
+  4. result: some photos get halved?
+  5. this was in 7 peace street!
 13. App should not get reset when changing between pages
 Make sure app still looks good in landscape rotation
 14. Add the short generated descriptions in the RestaurantCards
 15. [BUG] In favorites, operating hours goes beyond length
 16. Should be able to delete favorites
 17. [BUG] Re-sizing pop up by width makes pop up go down
+18. - Favorites should be ordered by time saaved
+  - Store in browser local storage how many times a user has tried LOL. Limit it to 5 searches
 
 NICE TO HAVE
 14. Button click animations. How do I make them look more like buttons?
@@ -109,7 +107,7 @@ function App() {
   React.useEffect(() => {
     const metaTag = document.querySelector('meta[name="theme-color"]');
     if (metaTag) {
-      metaTag.setAttribute('content', (page=="Main")?"#FFFFFF":"#F39600");
+      metaTag.setAttribute('content', (page == "Main") ? "#FFFFFF" : "#F39600");
     }
   }, [page]);
 

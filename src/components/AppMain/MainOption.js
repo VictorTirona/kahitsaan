@@ -167,7 +167,7 @@ export default function MainOption(props) {
             clientX: 0,
             clientY: 0,
             cardPosition: `translate(${0}px) rotate(${0}deg)`,
-            transitionStyle: `transform 0`
+            transitionStyle: `none`
           }))
     } catch (err) {
       console.error(err.message);
@@ -248,7 +248,7 @@ export default function MainOption(props) {
         })
         setTimeout(() => {
           handleSwipe("left");
-        }, 200);
+        }, 300);
       } else if (event.key === "ArrowRight" && !document.activeElement.className.includes("SearchBar")) {
         console.log("ArrowRight")
         setTouchEnd((oldState) => {
@@ -260,7 +260,7 @@ export default function MainOption(props) {
         })
         setTimeout(() => {
           handleSwipe("right");
-        }, 200);
+        }, 300);
       }
     }
 
