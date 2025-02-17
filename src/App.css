@@ -285,7 +285,7 @@ select {
 .Main--content-status {
   text-align: center;
   min-height: 22px;
-  max-width: 175px;
+  max-width: 200px;
   padding: 0 10px 0 10px;
   font-weight: 300;
   font-size: 15px;
